@@ -1,7 +1,7 @@
-// HelloWorld.cpp : Defines the entry point for the console application.
-//
+
 
 #include "stdafx.h"
+/*
 #include <iostream>
 #include <windows.h>
 #pragma comment(lib, "ws2_32.lib")
@@ -21,7 +21,7 @@ static const int LOGGING_PORT = 10000;
 // Entry point that writes logging records.
 int write_record(char
 	log_record[], int len) {
-	/* ... */
+	/* ... #1#
 	return 0;
 }
 // Entry point that processes logging records for one client connection.
@@ -62,16 +62,16 @@ return 0;
 
 
 // Main driver function for the server.
-int main(int argc, char *argv[]) {
-	INETFacade address = INETFacade(htons(LOGGING_PORT), htonl(INADDR_ANY));
-	SockAcceptorFacade sock_acceptor = SockAcceptorFacade(address);
-	SockStreamFacade sock_stream;
+int main(int argc, char *argv[]) {	
 	//struct sockaddr_in sock_addr;
 	//SOCKET acceptor;	
-	/*WORD version_requested = MAKEWORD(2,0);
+	WORD version_requested = MAKEWORD(2, 0);
 	WSADATA wsa_data;
-	int error =	WSAStartup(version_requested, &wsa_data);
-	if (error != 0) return -1;*/
+	int error = WSAStartup(version_requested, &wsa_data);
+	if (error != 0) return -1;
+	INETFacade address = INETFacade(5555, 0);
+	SockAcceptorFacade sock_acceptor = SockAcceptorFacade(address);
+	SockStreamFacade sock_stream;
 	// Create a local endpoint of communication.
 		//acceptor = socket(AF_INET,SOCK_STREAM, 0);
 		
@@ -87,7 +87,10 @@ int main(int argc, char *argv[]) {
 		//listen(acceptor, 5);
 		// Main server event loop.
 		for (;;) {
-			std::cout << "Connected";
+			std::cout << "Waiting" << std::endl;
+			std::cout << "port: " <<  address.get_port() << std::endl;
+			std::cout << "address: " << address.get_ip_addr() << std::endl;
+
 			// Handle UNIX/Win32 portability.
 			//SockStreamFacade h;
 			DWORD t_id;
@@ -96,8 +99,10 @@ int main(int argc, char *argv[]) {
 				//h = accept (acceptor, 0, 0);
 			// Spawn a new thread that runs	the <server> entry point.
 			sock_acceptor.acceptOverwritten(sock_stream);
+			std::cout << "Connected";
 			SOCKET h =sock_stream.get_handle();
 			CreateThread(0, 0, LPTHREAD_START_ROUTINE(&logging_handler), reinterpret_cast <void *>(h), 0, &t_id);
 		}
 		return 0;
 }
+*/

@@ -10,7 +10,7 @@
 SockAcceptorFacade::SockAcceptorFacade(INETFacade& addr)
 {
 	// Create a local endpoint ofcommunication.
-	handle_ = socket(PF_INET, SOCK_STREAM, 0);
+	handle_ = socket(AF_INET, SOCK_STREAM, 0);
 	// Associate address with endpoint.
 	bind(handle_, addr.addr(), addr.size());
 	// Make endpoint listen for connections.

@@ -8,7 +8,7 @@ INETFacade::INETFacade(u_short port, u_long addr)
 	memset(&addr_, 0, sizeof addr_);
 	addr_.sin_family = AF_INET;
 	addr_.sin_port = htons(port);
-	addr_.sin_addr.s_addr = htonl(addr);
+	addr_.sin_addr.s_addr = inet_addr("127.0.0.1");
 }
 
 

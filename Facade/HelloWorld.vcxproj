@@ -146,7 +146,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HelloWorld.h" />
     <ClInclude Include="INETFacade.h" />
     <ClInclude Include="MutexFacade.h" />
     <ClInclude Include="resource.h" />
@@ -157,7 +156,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HelloWorld.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="INETFacade.cpp" />
     <ClCompile Include="MutexFacade.cpp" />
     <ClCompile Include="SockAcceptorFacade.cpp" />

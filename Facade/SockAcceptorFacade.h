@@ -13,7 +13,7 @@ public:
 	void open(const INETFacade &sock_addr);
 	// Accept a connection and initialize the <stream>.
 	void acceptOverwritten(SockStreamFacade &s);
-	~SockAcceptorFacade();
+	~SockAcceptorFacade();	
 private:
 	SOCKET handle_; // Socket handle factory.
 };
