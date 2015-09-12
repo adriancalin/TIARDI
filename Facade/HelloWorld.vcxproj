@@ -151,6 +151,7 @@
     <ClInclude Include="MutexFacade.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SockAcceptorFacade.h" />
+    <ClInclude Include="SockConnectorFacade.h" />
     <ClInclude Include="SockStreamFacade.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="INETFacade.cpp" />
     <ClCompile Include="MutexFacade.cpp" />
     <ClCompile Include="SockAcceptorFacade.cpp" />
+    <ClCompile Include="SockConnectorFacade.cpp" />
     <ClCompile Include="SockStreamFacade.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

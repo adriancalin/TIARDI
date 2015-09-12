@@ -3,13 +3,14 @@
 #include <winsock.h>
 #pragma comment(lib, "ws2_32.lib")
 
-
+typedef int ssize_t;
 SockStreamFacade::SockStreamFacade() : handle_(-1)
 {
 }
 
 SockStreamFacade::SockStreamFacade(::SOCKET h) : handle_(h)
 {
+	handle_ = h;
 }
 
 SockStreamFacade::~SockStreamFacade()
@@ -27,22 +28,12 @@ SOCKET SockStreamFacade::get_handle() const
 	return handle_;
 }
 
-size_t SockStreamFacade::recv(void* buf, size_t len, int flags)
+ssize_t SockStreamFacade::recv(char* buf, size_t len, int flags)
 {
-	return recv(buf, len, flags);
+	return _WINSOCKAPI_::recv(handle_,buf, len, flags);
 }
 
-size_t SockStreamFacade::send(const char* buf, size_t len, int flags)
+ssize_t SockStreamFacade::send(const char* buf, size_t len, int flags)
 {
-	return send(buf, len, flags);
-}
-
-size_t SockStreamFacade::recv_n(char* buf, size_t len, int flags)
-{
-	return recv_n(buf, len, flags);
-}
-
-size_t SockStreamFacade::send_n(const char* buf, size_t len, int flags)
-{
-	return send_n(buf, len, flags);
+	return _WINSOCKAPI_::send(handle_,buf, len, flags);
 }
