@@ -2,13 +2,13 @@
 #include "INETFacade.h"
 
 
-INETFacade::INETFacade(u_short port, u_long addr)
+INETFacade::INETFacade(u_short port, char* addr)
 {
 	// Set up the address to become a server.
 	memset(&addr_, 0, sizeof addr_);
 	addr_.sin_family = AF_INET;
 	addr_.sin_port = htons(port);
-	addr_.sin_addr.s_addr = inet_addr("127.0.0.1");
+	addr_.sin_addr.s_addr = inet_addr(addr);
 }
 
 

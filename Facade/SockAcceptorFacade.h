@@ -12,7 +12,7 @@ public:
 	// A second method to initialize a passivemode acceptor socket, analogously to the constructor.
 	void open(const INETFacade &sock_addr);
 	// Accept a connection and initialize the <stream>.
-	void acceptOverwritten(SockStreamFacade &s);
+	void accept(SockStreamFacade &s);
 	~SockAcceptorFacade();	
 private:
 	SOCKET handle_; // Socket handle factory.

@@ -4,7 +4,7 @@
 class INETFacade
 {
 public:
-	INETFacade(u_short port, u_long addr);
+	INETFacade(u_short port, char* addr);
 	~INETFacade();
 	u_short get_port() const ;
 	u_long get_ip_addr() const ;

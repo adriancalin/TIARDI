@@ -17,14 +17,10 @@ SockAcceptorFacade::SockAcceptorFacade(INETFacade& addr)
 	listen(handle_, 5);
 }
 
-void SockAcceptorFacade::open(const INETFacade& sock_addr)
-{
-	//TODO
-}
 
-void SockAcceptorFacade::acceptOverwritten(SockStreamFacade& s)
+void SockAcceptorFacade::accept(SockStreamFacade& s)
 {
-	s.set_handle(accept(handle_, 0, 0));
+	s.set_handle(_WINSOCKAPI_::accept(handle_, 0, 0));
 	
 }
 
