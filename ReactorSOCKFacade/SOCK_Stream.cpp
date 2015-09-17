@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "sock_facade.h"
+#include "sock_lib.h"
 
 
 SOCK_Stream::SOCK_Stream() : handle_(INVALID_SOCKET)
