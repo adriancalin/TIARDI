@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\SOCK_Facade">
+      <UniqueIdentifier>{1a578de1-1a5f-4fe6-a348-5f04b9fc197d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SOCK_Facade">
+      <UniqueIdentifier>{27e5794f-cb60-4a0b-9eb8-bc8c530042eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +30,21 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INET_Addr.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_Stream.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_Acceptor.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="SOCK_Connector.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="sock_facade.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +52,18 @@
     </ClCompile>
     <ClCompile Include="ReactorSOCKFacade.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="INET_Addr.cpp">
+      <Filter>Source Files\SOCK_Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Stream.cpp">
+      <Filter>Source Files\SOCK_Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Acceptor.cpp">
+      <Filter>Source Files\SOCK_Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="SOCK_Connector.cpp">
+      <Filter>Source Files\SOCK_Facade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
