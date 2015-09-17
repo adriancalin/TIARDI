@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Facade", "Facade\HelloWorld.vcxproj", "{876867B8-B145-410A-9ABC-A3E3E9C10BA8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reactor_Pattern", "Reactor_Pattern\Reactor_Pattern.vcxproj", "{D9B1EE09-82F8-4237-BDFB-A229916C04E4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReactorSOCKFacade", "ReactorSOCKFacade\ReactorSOCKFacade.vcxproj", "{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,22 @@ Global
 		{D9B1EE09-82F8-4237-BDFB-A229916C04E4}.Release|x64.ActiveCfg = Release|Win32
 		{D9B1EE09-82F8-4237-BDFB-A229916C04E4}.Release|x86.ActiveCfg = Release|Win32
 		{D9B1EE09-82F8-4237-BDFB-A229916C04E4}.Release|x86.Build.0 = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|Win32.Build.0 = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|x64.ActiveCfg = Debug|x64
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|x64.Build.0 = Debug|x64
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|x86.ActiveCfg = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Debug|x86.Build.0 = Debug|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|Win32.ActiveCfg = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|Win32.Build.0 = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|x64.ActiveCfg = Release|x64
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|x64.Build.0 = Release|x64
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|x86.ActiveCfg = Release|Win32
+		{A88AF259-9DB9-4F60-AD55-C3A3C8D12E43}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
