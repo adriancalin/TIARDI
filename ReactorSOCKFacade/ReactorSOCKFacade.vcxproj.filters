@@ -19,6 +19,15 @@
     <Filter Include="Source Files\SOCK_Facade">
       <UniqueIdentifier>{27e5794f-cb60-4a0b-9eb8-bc8c530042eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Reactor">
+      <UniqueIdentifier>{768e63fa-ffcb-41b2-909c-889d2f96fb27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reactor">
+      <UniqueIdentifier>{20f67d58-feb3-416e-b373-d4d518b95578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reactor\Event_Handler">
+      <UniqueIdentifier>{89506871-2057-44ee-8c63-778ac77b1618}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -42,8 +51,23 @@
     <ClInclude Include="SOCK_Connector.h">
       <Filter>Header Files\SOCK_Facade</Filter>
     </ClInclude>
-    <ClInclude Include="sock_facade.h">
+    <ClInclude Include="Reactor.h">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_Handler.h">
+      <Filter>Header Files\Reactor\Event_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_Type.h">
+      <Filter>Header Files\Reactor\Event_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="reactor_lib.h">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="sock_lib.h">
       <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
+    <ClInclude Include="Demux_Table.h">
+      <Filter>Header Files\Reactor\Event_Handler</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
