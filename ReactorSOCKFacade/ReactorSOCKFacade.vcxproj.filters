@@ -28,6 +28,18 @@
     <Filter Include="Header Files\Reactor\Event_Handler">
       <UniqueIdentifier>{89506871-2057-44ee-8c63-778ac77b1618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Server">
+      <UniqueIdentifier>{920237ee-09b0-4563-a4de-ed30a9468d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reactor\Event_Handler\Concrete_Handler">
+      <UniqueIdentifier>{641c3025-7bba-4611-a979-bee5288798dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reactor\Event_Handler">
+      <UniqueIdentifier>{1761b1c0-a6ce-443b-b16d-f7192f23cc1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reactor\Event_Handler\Concrete_Handler">
+      <UniqueIdentifier>{4d083666-4887-4d5f-91c8-001e9511d8cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,12 +81,21 @@
     <ClInclude Include="Demux_Table.h">
       <Filter>Header Files\Reactor\Event_Handler</Filter>
     </ClInclude>
+    <ClInclude Include="Reactor_Select.h">
+      <Filter>Header Files\Reactor</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_Acceptor.h">
+      <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Event_Log.h">
+      <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReactorSOCKFacade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="INET_Addr.cpp">
@@ -88,6 +109,18 @@
     </ClCompile>
     <ClCompile Include="SOCK_Connector.cpp">
       <Filter>Source Files\SOCK_Facade</Filter>
+    </ClCompile>
+    <ClCompile Include="Reactor_Select.cpp">
+      <Filter>Source Files\Reactor</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Source Files\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Event_Acceptor.cpp">
+      <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Event_Log.cpp">
+      <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

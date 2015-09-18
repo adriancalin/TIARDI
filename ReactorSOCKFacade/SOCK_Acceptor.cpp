@@ -21,3 +21,8 @@ void SOCK_Acceptor::accept(SOCK_Stream& s)
 {
 	s.set_handle(_WINSOCKAPI_::accept(handle_, 0, 0));
 }
+
+SOCKET SOCK_Acceptor::get_handle() const
+{
+	return handle_;
+}

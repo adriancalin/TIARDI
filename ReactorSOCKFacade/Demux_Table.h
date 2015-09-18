@@ -3,9 +3,13 @@
 #include "stdafx.h"
 #include "reactor_lib.h"
 
+
 class Demux_Table {
 public:
-	void convert_to_fd_sets(fd_set &read_fds, fd_set &write_fds, fd_set &except_fds);
+	void convert_to_fd_sets(fd_set &read_fds, fd_set &write_fds, fd_set &except_fds)
+	{
+		
+	}
 	
 	struct Tuple {
 		Event_Handler *event_handler_;
