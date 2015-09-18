@@ -3,7 +3,7 @@
 #include "sock_lib.h"
 #include "reactor_lib.h"
 
-class Event_Acceptor : Event_Handler
+class Event_Acceptor : public Event_Handler
 {
 public:
 	Event_Acceptor(INET_Addr &addr, Reactor *reactor);

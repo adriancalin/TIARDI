@@ -2,7 +2,7 @@
 
 #include "reactor_lib.h"
 
-class Reactor_Select : Reactor
+class Reactor_Select : public Reactor
 {
 public:
 	~Reactor_Select();

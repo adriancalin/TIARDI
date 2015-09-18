@@ -122,5 +122,8 @@
     <ClCompile Include="Event_Log.cpp">
       <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClCompile>
+    <ClCompile Include="Demux_Table.cpp">
+      <Filter>Source Files\Reactor\Event_Handler</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

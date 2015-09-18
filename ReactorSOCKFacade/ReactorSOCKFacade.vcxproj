@@ -163,6 +163,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Event_Acceptor.cpp" />
     <ClCompile Include="Event_Log.cpp" />
     <ClCompile Include="INET_Addr.cpp" />

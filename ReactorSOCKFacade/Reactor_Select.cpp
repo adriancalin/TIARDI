@@ -16,8 +16,9 @@ void Reactor_Select::register_handler(Event_Handler* eh, Event_Type et)
 
 void Reactor_Select::register_handler(Handle h, Event_Handler* eh, Event_Type et)
 {
-	demux_table.table_[h].event_type_ = et;
-	demux_table.table_[h].event_handler_ = eh;
+	Event_Tuple event_tuple = { eh, et };
+	demux_table.table_.push_back(event_tuple);
+
 }
 
 void Reactor_Select::remove_handler(Event_Handler* eh, Event_Type et)
@@ -28,22 +29,37 @@ void Reactor_Select::remove_handler(Event_Handler* eh, Event_Type et)
 
 void Reactor_Select::remove_handler(Handle h, Event_Type et)
 {
-	demux_table.table_[h].event_type_ = 0;
+	// demux_table.table_[h].event_type_ = 0;
+	for (std::vector<Event_Tuple>::iterator it = demux_table.table_.begin(); it != demux_table.table_.end(); ++it)
+	{
+		if (it->event_handler_->get_handle() == h)
+		{
+			demux_table.table_.erase(it);
+		}
+	}
 }
 
-void Reactor_Select::handle_events(Time_Value* timeout)
+void Reactor_Select::handle_events(Time_Value *timeout)
 {
 	fd_set read_fds, write_fds, except_fds;
 	demux_table.convert_to_fd_sets(read_fds, write_fds, except_fds);
-	Handle max_handle = 32;
-	int result = select(max_handle + 1, &read_fds, &write_fds, &except_fds, timeout);
+	Handle MAX_HANDLE = FD_SETSIZE;
+	int result = select(0, &read_fds, &write_fds, NULL, NULL);
+	printf("handle_events->result=%d", result);
 	if (result <= 0) throw; // handle error or timeout cases here
-	for (Handle h = 0; h <= max_handle; h++) {
-		if (FD_ISSET(&read_fds, h))
-			demux_table.table_[h].event_handler_->handle_event(h, READ_EVENT);
-		if (FD_ISSET(&write_fds, h))
-			demux_table.table_[h].event_handler_->handle_event(h, WRITE_EVENT);
-		if (FD_ISSET(&except_fds, h))
-			demux_table.table_[h].event_handler_->handle_event(h, CLOSE_EVENT);
+	for (Handle h = 0; h <= MAX_HANDLE; h++) {
+
+		for (std::vector<Event_Tuple>::iterator it = demux_table.table_.begin(); it != demux_table.table_.end(); ++it)
+		{
+			if (FD_ISSET(it->event_handler_->get_handle(), &read_fds))
+			{
+				it->event_handler_->handle_event(read_fds.fd_array[h], READ_EVENT);
+			}
+		}
+		
+		if (FD_ISSET(h, &write_fds))
+		{
+			// TODO
+		}
 	}
 }

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "sock_lib.h"
 #include "reactor_lib.h"
+#include <vector>
 
 using ::Event_Log;
 
