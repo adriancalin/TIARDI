@@ -19,7 +19,7 @@ void Event_Acceptor::handle_event(Handle handle, Event_Type et)
 {
 	if (et == ACCEPT_EVENT)
 	{
-		printf("Event_Acceptor-> Accepting a new client...");
+		printf("Event_Acceptor-> Accepting a new client...\n");
 		SOCK_Stream new_client;
 		acceptor_.accept(new_client);
 		Event_Log *handler = new Event_Log(new_client, reactor_);

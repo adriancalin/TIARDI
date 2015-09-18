@@ -1,31 +1,29 @@
 #include "stdafx.h"
 #include "reactor_lib.h"
 
-using ::Demux_Table;
+using ::Demux_Table;	using ::Handle;
+using std::map;			using ::Event_Tuple;
 
 void Demux_Table::convert_to_fd_sets(fd_set& read_fds, fd_set& write_fds, fd_set& except_fds)
 {
-
-	// TODO consider using FD_ZERO to initialize sets to 0.
-	
 	FD_ZERO(&read_fds);
 	FD_ZERO(&write_fds);
+	FD_ZERO(&except_fds);
 
-	for (std::vector<Event_Tuple>::iterator it = table_.begin(); it != table_.end(); ++it)
+	map<Handle, Event_Tuple>::iterator it;
+
+	for (it = table_.begin(); it != table_.end(); ++it)
 	{
-		// TODO consider using FD_SET rather than direct access of members	
-		if (it->event_type_ == READ_EVENT || it->event_type_ == ACCEPT_EVENT)
+		Event_Type et = it->second.event_type_;
+		if (et == ACCEPT_EVENT || et == READ_EVENT)
 		{
-			FD_SET(it->event_handler_->get_handle(), &read_fds);
-		}
-		else if (it->event_type_ == WRITE_EVENT) {
-//			write_fds.fd_array[read_fds.fd_count] = it->event_handler_->get_handle();
-//			++write_fds.fd_count;
+			FD_SET(it->first, &read_fds);
+		} else if (et == WRITE_EVENT)
+		{
+			FD_SET(it->first, &write_fds);
 		} else
 		{
-			// TODO other cases?
+			// TODO Handle rest of cases
 		}
-
-		
 	}
 }

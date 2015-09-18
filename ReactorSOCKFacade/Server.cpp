@@ -14,7 +14,7 @@ int main()
 
 	while (true)
 	{
-		printf("Waiting for events...");
+		printf("Waiting for events...\n");
 		reactor.handle_events();
 	}
 
