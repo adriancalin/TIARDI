@@ -3,7 +3,7 @@
 
 int main()
 {
-	WORD version_requested = MAKEWORD(2, 2);
+	WORD version_requested = MAKEWORD(2, 0);
 	WSADATA wsa_data;
 	int error = WSAStartup(version_requested, &wsa_data);
 	if (error != 0) return -1;

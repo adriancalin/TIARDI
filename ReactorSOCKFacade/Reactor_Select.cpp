@@ -37,15 +37,17 @@ void Reactor_Select::handle_events(Time_Value *timeout)
 	fd_set read_fds, write_fds, except_fds;
 	demux_table.convert_to_fd_sets(read_fds, write_fds, except_fds);
 	int result = select(0, &read_fds, &write_fds, &except_fds, NULL);
-	// if (result <= 0) throw; // handle error or timeout cases here
+	if (result <= 0) printf("select() returned with error %d\n", WSAGetLastError());
 	map<Handle, Event_Tuple>::iterator it;
-	for (it = demux_table.table_.begin(); it != demux_table.table_.end(); ++it)
+	
+	if (result > 0)
 	{
-		if (FD_ISSET(it->first, &read_fds))
+		for (it = demux_table.table_.begin(); it != demux_table.table_.end(); ++it)
 		{
-			it->second.event_handler_->handle_event(it->first, it->second.event_type_);
+			if (FD_ISSET(it->first, &read_fds))
+			{
+				it->second.event_handler_->handle_event(it->first, it->second.event_type_);
+			}
 		}
 	}
-	
-	
 }

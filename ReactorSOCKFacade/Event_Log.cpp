@@ -9,7 +9,7 @@ Event_Log::Event_Log(const SOCK_Stream& stream, Reactor* reactor) : stream_(stre
 	reactor->register_handler(this, READ_EVENT);
 }
 
-Event_Log::~Event_Log()
+Event_Log::~Event_Log() 
 {
 	// No resources to release
 }
