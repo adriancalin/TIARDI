@@ -26,7 +26,7 @@ void Event_Log::handle_event(Handle handle, Event_Type et)
 		else
 		{
 			buffer[len] = '\0';
-			demux_.handle_log(buffer);
+			demux_.handle_log(buffer, len);
 		}
 		
 	}
