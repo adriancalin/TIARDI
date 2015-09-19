@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Reactor\Event_Handler\Concrete_Handler">
       <UniqueIdentifier>{4d083666-4887-4d5f-91c8-001e9511d8cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Client">
+      <UniqueIdentifier>{aa4ee86d-9ff4-40da-804b-e1c7a482a302}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -93,6 +96,9 @@
     <ClInclude Include="Event_Log.h">
       <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClInclude>
+    <ClInclude Include="Event_Log_Demux.h">
+      <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -124,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="Demux_Table.cpp">
       <Filter>Source Files\Reactor\Event_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Event_Log_Demux.cpp">
+      <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

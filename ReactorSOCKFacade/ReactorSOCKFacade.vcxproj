@@ -150,6 +150,7 @@
     <ClInclude Include="Event_Handler.h" />
     <ClInclude Include="Event_Log.h" />
     <ClInclude Include="Event_Logger.h" />
+    <ClInclude Include="Event_Log_Demux.h" />
     <ClInclude Include="Event_Type.h" />
     <ClInclude Include="INET_Addr.h" />
     <ClInclude Include="Reactor.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Event_Acceptor.cpp" />
     <ClCompile Include="Event_Log.cpp" />
+    <ClCompile Include="Event_Log_Demux.cpp" />
     <ClCompile Include="INET_Addr.cpp" />
     <ClCompile Include="Reactor_Select.cpp" />
     <ClCompile Include="Server.cpp" />

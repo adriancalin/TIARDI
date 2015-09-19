@@ -2,6 +2,7 @@
 
 #include "sock_lib.h"
 #include "reactor_lib.h"
+#include "Event_Log_Demux.h"
 
 class Event_Log : Event_Handler
 {
@@ -14,4 +15,5 @@ public:
 private:
 	Reactor *reactor_;
 	SOCK_Stream stream_;
+	Event_Log_Demux demux_;
 };
