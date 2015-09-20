@@ -29,17 +29,17 @@ void Reactor_Select::remove_handler(Event_Handler* eh, Event_Type et)
 
 void Reactor_Select::remove_handler(Handle h, Event_Type et)
 {
-	demux_table.table_.erase(h);
+	demux_table.table_[h].event_handler_ = nullptr;
+	demux_table.table_[h].event_type_ = NULL;
 }
 
 void Reactor_Select::handle_events(Time_Value *timeout)
 {
 	fd_set read_fds, write_fds, except_fds;
 	demux_table.convert_to_fd_sets(read_fds, write_fds, except_fds);
-	int result = select(0, &read_fds, &write_fds, &except_fds, NULL);
+	int result = select(0, &read_fds, &write_fds, &except_fds, timeout);
 	if (result <= 0) printf("select() returned with error %d\n", WSAGetLastError());
 	map<Handle, Event_Tuple>::iterator it;
-	
 	if (result > 0)
 	{
 		for (it = demux_table.table_.begin(); it != demux_table.table_.end(); ++it)

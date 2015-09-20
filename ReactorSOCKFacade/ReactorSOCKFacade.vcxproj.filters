@@ -99,6 +99,9 @@
     <ClInclude Include="Event_Log_Demux.h">
       <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -133,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="Event_Log_Demux.cpp">
       <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Source Files\Client</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

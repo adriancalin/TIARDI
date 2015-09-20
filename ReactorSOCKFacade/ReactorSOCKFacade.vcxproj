@@ -145,6 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="config.h" />
     <ClInclude Include="Demux_Table.h" />
     <ClInclude Include="Event_Acceptor.h" />
     <ClInclude Include="Event_Handler.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Demux_Table.cpp" />
     <ClCompile Include="Event_Acceptor.cpp" />
     <ClCompile Include="Event_Log.cpp" />

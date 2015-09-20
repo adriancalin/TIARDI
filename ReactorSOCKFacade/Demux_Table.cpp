@@ -15,6 +15,7 @@ void Demux_Table::convert_to_fd_sets(fd_set& read_fds, fd_set& write_fds, fd_set
 	for (it = table_.begin(); it != table_.end(); ++it)
 	{
 		Event_Type et = it->second.event_type_;
+		if (it->second.event_handler_ == nullptr) continue;
 		if (et == ACCEPT_EVENT || et == READ_EVENT)
 		{
 			FD_SET(it->second.event_handler_->get_handle(), &read_fds);

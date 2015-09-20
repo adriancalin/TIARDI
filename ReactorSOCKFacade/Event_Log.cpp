@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "sock_lib.h"
 #include "reactor_lib.h"
+#include "config.h"
 
 using ::Event_Log;
 
@@ -12,16 +13,15 @@ Event_Log::Event_Log(const SOCK_Stream& stream, Reactor* reactor) : stream_(stre
 
 Event_Log::~Event_Log() 
 {
-	// TODO 
-	//	reactor_->remove_handler(this, READ_EVENT);
+	reactor_->remove_handler(this, READ_EVENT);
 }
 
 void Event_Log::handle_event(Handle handle, Event_Type et)
 {
 	if (et == READ_EVENT)
 	{
-		char buffer[1024];
-		int len = stream_.recv(buffer, 1024, 0);
+		char buffer[EVENT_MAX_SIZE];
+		int len = stream_.recv(buffer, EVENT_MAX_SIZE, 0);
 		if (len <= 0) delete this;
 		else
 		{
