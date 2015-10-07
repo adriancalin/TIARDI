@@ -2,6 +2,10 @@
 #include "sock_lib.h"
 #include "reactor_lib.h"
 #include "config.h"
+#include <map>
+#include <string>
+
+using std::map;		using std::string;
 
 using ::Event_Log;
 
@@ -19,6 +23,12 @@ Event_Log::~Event_Log()
 
 void Event_Log::handle_event(Handle handle, Event_Type et)
 {
+
+	map<string, string> dummy;
+	dummy["1"] = "George Bush";
+	dummy["2"] = "Rich Piana";
+	dummy["3"] = "Tigan Contrabandist";
+
 	if (et == READ_EVENT)
 	{
 		char buffer[EVENT_MAX_SIZE];
@@ -27,7 +37,9 @@ void Event_Log::handle_event(Handle handle, Event_Type et)
 		else
 		{
 			buffer[len] = '\0';
-			demux_.handle_log(buffer, len);
+			const char *response = dummy[string(buffer, 0, len)].c_str();
+			stream_.send(response, strlen(response), 0);
+//			demux_.handle_log(buffer, len);
 		}
 		
 	}

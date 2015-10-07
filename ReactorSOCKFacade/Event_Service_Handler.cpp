@@ -37,8 +37,18 @@ void Event_Service_Handler::handle_event(Handle handle, Event_Type et)
 		} break;
 		case WRITE_OUTPUT: 
 		{
-			// TO DO 
-		}
+			char buffer[1000];
+			int len = handle_.recv(buffer, 1000, 0);
+			buffer[len] = '\0';
+			cout << "Server response: " << string(buffer, 0, len) << endl;
+
+			// Prepare ourselves to write data
+
+			reactor_->remove_handler(this, READ_EVENT);
+			reactor_->register_handler(this, WRITE_EVENT);
+			STATE = READ_INPUT;
+
+		} break;
 	}
 	
 }
