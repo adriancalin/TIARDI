@@ -105,6 +105,9 @@
     <ClInclude Include="Event_Connector.h">
       <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClInclude>
+    <ClInclude Include="Event_Service_Handler.h">
+      <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -144,6 +147,9 @@
       <Filter>Source Files\Client</Filter>
     </ClCompile>
     <ClCompile Include="Event_Connector.cpp">
+      <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Event_Service_Handler.cpp">
       <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClCompile>
   </ItemGroup>

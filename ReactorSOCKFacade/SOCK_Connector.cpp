@@ -15,7 +15,6 @@ SOCK_Connector::~SOCK_Connector()
 int SOCK_Connector::connect(sockaddr* addr, size_t len)
 {
 	return _WINSOCKAPI_::connect(handle_, addr, len);
-	return 0;
 }
 
 SOCKET SOCK_Connector::get_handle() const

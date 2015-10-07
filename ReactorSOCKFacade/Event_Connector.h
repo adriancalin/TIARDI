@@ -2,19 +2,19 @@
 
 #include "sock_lib.h"
 
-typedef void(*ConnectHandler) (Handle*);
+typedef void(*ServiceHandle) (Handle);
 
 class Event_Connector : Event_Handler
 {
 public:
-	Event_Connector(Reactor* reactor_);
+	Event_Connector(Reactor* reactor);
 	~Event_Connector();
 	void handle_event(Handle handle, Event_Type et) override;
 	Handle get_handle() const override;
-	void connect(ConnectHandler ch, INET_Addr addr);
+	void connect(ServiceHandle sh, INET_Addr addr);
 
 private:
 	SOCK_Connector connector_;
 	Reactor *reactor_;
-	ConnectHandler ch_;
+	ServiceHandle sh_;
 };

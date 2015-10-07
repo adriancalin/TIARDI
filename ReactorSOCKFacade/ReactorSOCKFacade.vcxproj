@@ -152,6 +152,7 @@
     <ClInclude Include="Event_Log.h" />
     <ClInclude Include="Event_Logger.h" />
     <ClInclude Include="Event_Log_Demux.h" />
+    <ClInclude Include="Event_Service_Handler.h" />
     <ClInclude Include="Event_Type.h" />
     <ClInclude Include="INET_Addr.h" />
     <ClInclude Include="Event_Connector.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Event_Connector.cpp" />
     <ClCompile Include="Event_Log.cpp" />
     <ClCompile Include="Event_Log_Demux.cpp" />
+    <ClCompile Include="Event_Service_Handler.cpp" />
     <ClCompile Include="INET_Addr.cpp" />
     <ClCompile Include="Reactor_Select.cpp" />
     <ClCompile Include="Server.cpp" />
