@@ -13,6 +13,7 @@ Event_Log::Event_Log(const SOCK_Stream& stream, Reactor* reactor) : stream_(stre
 
 Event_Log::~Event_Log() 
 {
+	std::cout << "Removing handler..." << std::endl;
 	reactor_->remove_handler(this, READ_EVENT);
 }
 

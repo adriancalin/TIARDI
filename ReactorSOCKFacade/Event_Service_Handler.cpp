@@ -3,7 +3,7 @@
 #include "reactor_lib.h"
 
 using ::Event_Service_Handler;
-using std::cout;
+using std::cout;	using std::endl;
 
 Event_Service_Handler::Event_Service_Handler() {}
 
@@ -13,7 +13,7 @@ Event_Service_Handler::~Event_Service_Handler() {}
 
 void Event_Service_Handler::handle_event(Handle handle, Event_Type et)
 {
-	// TODO 
+	cout << "Ready for write event..." << endl;
 }
 
 Handle Event_Service_Handler::get_handle() const
@@ -23,5 +23,7 @@ Handle Event_Service_Handler::get_handle() const
 
 void Event_Service_Handler::open(Handle stream)
 {
-	cout << "Connector initialized stream";
+	cout << "Connector initialized stream" << endl;
+	handle_.set_handle(stream);
+	reactor_->register_handler(this, WRITE_EVENT);
 }
