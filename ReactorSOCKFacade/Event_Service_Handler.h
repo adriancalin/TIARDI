@@ -16,4 +16,5 @@ public:
 private:
 	Reactor *reactor_;
 	SOCK_Stream handle_;
+	int STATE;
 };
