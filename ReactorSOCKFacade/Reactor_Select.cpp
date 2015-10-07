@@ -48,6 +48,10 @@ void Reactor_Select::handle_events(Time_Value *timeout)
 			{
 				it->second.event_handler_->handle_event(it->first, it->second.event_type_);
 			}
+			else if (FD_ISSET(it->first, &write_fds))
+			{
+				it->second.event_handler_->handle_event(it->first, it->second.event_type_);
+			}
 		}
 	}
 }
