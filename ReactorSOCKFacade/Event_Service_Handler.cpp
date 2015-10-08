@@ -24,9 +24,15 @@ void Event_Service_Handler::handle_event(Handle handle, Event_Type et)
 	{
 		case READ_INPUT: 
 		{
-			cout << "Please enter an event: ";
 			string input;
-			getline(cin, input);
+			do
+			{
+				cout << "Please enter patient cpr: ";
+				getline(cin, input);
+
+			} while (input.length() <= 0);
+
+
 			handle_.send(input.c_str(), strlen(input.c_str()), 0);
 
 			// Preparing ourselves to read data
