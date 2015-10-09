@@ -8,6 +8,7 @@
 #include <sstream>
 #include <fstream>
 
+
 using namespace std;
 using ::Event_Log;
 
@@ -57,7 +58,8 @@ string get_patient_from_file(string cpr)
 
 void Event_Log::handle_event(Handle handle, Event_Type et)
 {
-
+	
+	
 	if (et == READ_EVENT)
 	{
 		char buffer[EVENT_MAX_SIZE];
@@ -66,13 +68,14 @@ void Event_Log::handle_event(Handle handle, Event_Type et)
 		else
 		{
 			buffer[len] = '\0';
-
+			auto queue = Queue::getInstance();
+			queue->Enqueue(QueueMember{handle,string(buffer, 0, len) });
 			// get the patient information
-			string patientInfo = get_patient_from_file(string(buffer, 0, len));
+			//string patientInfo = get_patient_from_file(string(buffer, 0, len));
 
-			const char *response = patientInfo.c_str();
+			//const char *response = patientInfo.c_str();
 			//write it back to the client
-			stream_.send(response, strlen(response), 0);
+			//stream_.send(response, strlen(response), 0);
 		}	
 	}
 }

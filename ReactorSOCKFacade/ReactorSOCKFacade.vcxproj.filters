@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Client">
       <UniqueIdentifier>{aa4ee86d-9ff4-40da-804b-e1c7a482a302}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Server\Queue">
+      <UniqueIdentifier>{e98a8a5c-0dd2-4f6a-b66a-63e781f8b574}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -111,6 +114,12 @@
     <ClInclude Include="Event_Service_Handler.h">
       <Filter>Header Files\Reactor\Event_Handler\Concrete_Handler</Filter>
     </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MutexFacade.h">
+      <Filter>Header Files\SOCK_Facade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -154,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="Event_Service_Handler.cpp">
       <Filter>Source Files\Reactor\Event_Handler\Concrete_Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Source Files\Server\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="MutexFacade.cpp">
+      <Filter>Source Files\SOCK_Facade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

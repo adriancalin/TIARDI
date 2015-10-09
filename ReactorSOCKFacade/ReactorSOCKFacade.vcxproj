@@ -157,6 +157,8 @@
     <ClInclude Include="Event_Type.h" />
     <ClInclude Include="INET_Addr.h" />
     <ClInclude Include="Event_Connector.h" />
+    <ClInclude Include="MutexFacade.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Reactor.h" />
     <ClInclude Include="reactor_lib.h" />
     <ClInclude Include="Reactor_Select.h" />
@@ -176,6 +178,8 @@
     <ClCompile Include="Event_Log_Demux.cpp" />
     <ClCompile Include="Event_Service_Handler.cpp" />
     <ClCompile Include="INET_Addr.cpp" />
+    <ClCompile Include="MutexFacade.cpp" />
+    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Reactor_Select.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="SOCK_Acceptor.cpp" />
