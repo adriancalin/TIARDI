@@ -24,13 +24,56 @@ void Event_Service_Handler::handle_event(Handle handle, Event_Type et)
 	{
 		case READ_INPUT: 
 		{
-			string input;
+			string input; 
+			// 1 - request patient info event; 2 - send patient info
+			string et1("1");
+			string et2("2");
+
+			//read the event type from keyboard
+			string eventType;
 			do
 			{
-				cout << "Please enter patient cpr: ";
-				getline(cin, input);
+				cout << "Choose either request or send event\n";
+				cout << "Enter 1 for request or 2 for send: ";
+				getline(cin, eventType);
 
-			} while (input.length() <= 0);
+			} while ((eventType != et1) && (eventType != et2));
+			cout << "\n";
+
+			if (eventType == "1")
+			{
+				//read the cpr value from keyboard
+				string cpr;
+				do
+				{
+					cout << "Please enter desired patient's cpr: ";
+					getline(cin, cpr);
+				} while (cpr.length() <= 0);
+				cout << "\n";
+				//format the input according to the request patient info event type
+				input = "1 " + cpr;
+			}
+			else
+			{
+				string cpr, name;
+				//read the cpr value from keyboard
+				do
+				{
+					cout << "Please enter the new patient's cpr: ";
+					getline(cin, cpr);
+				} while (cpr.length() <= 0);
+
+				//read the name value from keyboard
+				do
+				{
+					cout << "Please enter the new patient's name: ";
+					getline(cin, name);
+				} while (name.length() <= 0);
+				cout << "\n";
+				//format the input according to the send patient info event type
+				input = "2 " + cpr + "|" + name;
+			}
+			cout << "\n";
 
 
 			handle_.send(input.c_str(), strlen(input.c_str()), 0);
