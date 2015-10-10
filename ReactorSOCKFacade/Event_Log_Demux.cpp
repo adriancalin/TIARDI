@@ -1,7 +1,13 @@
 #include "stdafx.h"
 #include "Event_Log_Demux.h"
+#include <sstream>
+#include <string>
+#include <vector>
+#include <fstream>
 
 typedef std::string::size_type str_size;
+
+using namespace std;
 
 Event_Log_Demux::Event_Log_Demux()
 {
@@ -13,36 +19,91 @@ Event_Log_Demux::~Event_Log_Demux()
 	
 }
 
-void Event_Log_Demux::handle_log(char in[], int len)
+string Event_Log_Demux::handle_log(string log)
 {
 	// Delegate based on event type
-	char log_type = in[0];
+	char log_type = log.at(0);
 	switch (log_type)
 	{
 		// Convert buffer to std::string for easier manipulation
-		case '1': handle_alarm(std::string(in, 2, len)); break;
-		case '2': handle_patient_info(std::string(in, 2, len)); break;
-		case '3': handle_simple_log(std::string(in, 2, len)); break;
+		case '1': return get_info(log.substr(2)); break;
+		case '2': return insert_info(log.substr(2)); break;
 	}
 }   
 
-void Event_Log_Demux::handle_alarm(std::string alarm)
+string Event_Log_Demux::get_info(std::string id)
 {
-	str_size priority_end = alarm.find("|");
-	str_size priority_text = alarm.find("|", priority_end + 1);
-	std::cout << "Alarm priority: " << alarm.substr(0, priority_end) << std::endl;
-	std::cout << "Alarm text: " << alarm.substr(priority_end + 1, priority_text) << std::endl;
+	string line;
+	ifstream myfile("patients.txt");
+	if (myfile.is_open())
+	{
+		//read all the lines
+		while (getline(myfile, line))
+		{
+			stringstream ssLine(line);
+			string segment;
+			vector<string> seglist; // used for storing the patient cpr & info
+									//get the words separated by '-' -> segment)
+			while (getline(ssLine, segment, '-'))
+			{
+				seglist.push_back(segment);
+			}
+			//is the first value in the vector equal to the cpr we are looking for?
+			if (id.compare(seglist[0]) == 0)
+			{
+				string &patient_name = seglist[1];
+				myfile.close();
+				return patient_name;
+			}
+		}
+
+		myfile.close();
+	}
+	//in case no patient was found with the specified cpr
+	return "Patient not found!";
+	
 }
 
-void Event_Log_Demux::handle_patient_info(std::string patient_info)
+string Event_Log_Demux::insert_info(std::string patient_info)
 {
-	str_size type_end = patient_info.find("|");
-	str_size value_end = patient_info.find("|", type_end + 1);
-	std::cout << "Patient event type: " << patient_info.substr(0, type_end) << std::endl;
-	std::cout << "Patient event value: " << patient_info.substr(type_end + 1, value_end) << std::endl;
-}
+	str_size id_end = patient_info.find("|");
+	str_size name_end = patient_info.find("|", id_end + 1);
+	auto id = patient_info.substr(0, id_end);
+	auto name = patient_info.substr(id_end + 1, name_end);
 
-void Event_Log_Demux::handle_simple_log(std::string simple_log)
-{
-	std::cout << "Log text: " << simple_log << std::endl;
+	string line;
+	int check = 0;
+	ifstream myfile("patients.txt");
+	if (myfile.is_open())
+	{
+		//read all the lines
+		while (getline(myfile, line))
+		{
+			stringstream ssLine(line);
+			string segment;
+			vector<string> seglist; // used for storing the patient cpr & info
+									//get the words separated by '-' -> segment)
+			while (getline(ssLine, segment, '-'))
+			{
+				seglist.push_back(segment);
+			}
+			//is the first value in the vector equal to the cpr we are looking for?
+			if (id.compare(seglist[0]) == 0)
+			{
+				myfile.close();
+				return "Entry with that CPR already exists!";
+				
+			}
+		}
+		myfile.close();
+		ofstream myfile("patients.txt", ios::app);
+		string entry = "\n";
+		entry += id;
+		entry += "-";
+		entry += name;
+		myfile.write(entry.c_str(),entry.length());
+		myfile.close();
+		return "Entry inserted!";
+	}
+	return "Issues with the file. Please try again!";
 }

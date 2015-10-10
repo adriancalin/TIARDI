@@ -7,10 +7,9 @@ class Event_Log_Demux
 public: 
 	Event_Log_Demux();
 	~Event_Log_Demux();
-	void handle_log(char in[], int len);
+	std::string handle_log(std::string);
 
 private:
-	void handle_alarm(std::string alarm);
-	void handle_patient_info(std::string patient_info);
-	void handle_simple_log(std::string simple_log);
+	std::string get_info(std::string);
+	std::string insert_info(std::string);
 };
