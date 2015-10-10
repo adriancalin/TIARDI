@@ -3,9 +3,9 @@
 
 Queue* Queue::instance = NULL;
 
-Queue * Queue::getInstance()
+Queue* Queue::getInstance()
 {
-	if(!instance)
+	if (!instance)
 	{
 		instance = new Queue;
 	}
@@ -18,8 +18,8 @@ Queue::~Queue()
 
 bool Queue::Enqueue(QueueMember member)
 {
-	if(maxItems_==queue_.size())
-	return false;
+	if (maxItems_ == queue_.size())
+		return false;
 	else
 	{
 		queue_.push(member);
@@ -29,7 +29,7 @@ bool Queue::Enqueue(QueueMember member)
 
 QueueMember Queue::Dequeue()
 {
-	QueueMember x= queue_.front();
+	QueueMember x = queue_.front();
 	queue_.pop();
 	return x;
 }

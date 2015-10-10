@@ -14,7 +14,7 @@ SOCK_Stream::SOCK_Stream(::SOCKET h) : handle_(h)
 
 SOCK_Stream::~SOCK_Stream()
 {
-	//closesocket(handle_);
+	closesocket(handle_);
 }
 
 void SOCK_Stream::set_handle(::SOCKET h)

@@ -2,8 +2,6 @@
 #include "MutexFacade.h"
 
 
-
-
 MutexFacade::MutexFacade()
 {
 	InitializeCriticalSection(&mutex_);
@@ -24,5 +22,3 @@ void MutexFacade::release()
 {
 	LeaveCriticalSection(&mutex_);
 }
-
-

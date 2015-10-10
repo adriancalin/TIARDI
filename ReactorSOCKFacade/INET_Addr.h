@@ -9,10 +9,9 @@ public:
 	~INET_Addr();
 	u_short get_port() const;
 	u_long get_ip_addr() const;
-	sockaddr *addr();
+	sockaddr* addr();
 	size_t size() const;
 
 private:
 	sockaddr_in addr_;
 };
-

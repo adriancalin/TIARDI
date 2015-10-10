@@ -5,8 +5,9 @@
 #include <queue>
 #include "config.h"
 
-struct QueueMember {
-		Handle handle;
+struct QueueMember
+{
+	Handle handle;
 	std::string buffer;
 };
 
@@ -20,9 +21,11 @@ public:
 	bool CheckDequeuePossible();
 	int GetQueueSize();
 private:
-	Queue(){};
+	Queue()
+	{
+	};
+
 	std::queue<QueueMember> queue_;
-	int maxItems_=10;
+	int maxItems_ = 10;
 	static Queue* instance;
 };
-

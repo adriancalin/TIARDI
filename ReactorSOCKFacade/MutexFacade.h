@@ -13,7 +13,6 @@ private:
 	// Win32-specific Mutex mechanism.
 	CRITICAL_SECTION mutex_;
 	// Disallow copying and assignment.
-	MutexFacade(const MutexFacade &);
-	void operator= (const MutexFacade &);
+	MutexFacade(const MutexFacade&);
+	void operator=(const MutexFacade&);
 };
-

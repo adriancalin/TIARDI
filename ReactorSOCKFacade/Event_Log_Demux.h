@@ -4,7 +4,7 @@
 
 class Event_Log_Demux
 {
-public: 
+public:
 	Event_Log_Demux();
 	~Event_Log_Demux();
 	std::string handle_log(std::string);

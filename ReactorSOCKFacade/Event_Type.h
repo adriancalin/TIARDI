@@ -8,7 +8,8 @@ typedef const timeval Time_Value;
 
 typedef unsigned int Event_Type;
 
-enum {
+enum
+{
 	READ_EVENT = 01,
 	ACCEPT_EVENT = 01,
 	WRITE_EVENT = 02,

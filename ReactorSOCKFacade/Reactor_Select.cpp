@@ -18,7 +18,7 @@ void Reactor_Select::register_handler(Event_Handler* eh, Event_Type et)
 
 void Reactor_Select::register_handler(Handle h, Event_Handler* eh, Event_Type et)
 {
-	demux_table.table_[h] = Event_Tuple{ eh, et };
+	demux_table.table_[h] = Event_Tuple{eh, et};
 }
 
 void Reactor_Select::remove_handler(Event_Handler* eh, Event_Type et)
@@ -33,7 +33,7 @@ void Reactor_Select::remove_handler(Handle h, Event_Type et)
 	demux_table.table_[h].event_type_ = NULL;
 }
 
-void Reactor_Select::handle_events(Time_Value *timeout)
+void Reactor_Select::handle_events(Time_Value* timeout)
 {
 	fd_set read_fds, write_fds, except_fds;
 	demux_table.convert_to_fd_sets(read_fds, write_fds, except_fds);

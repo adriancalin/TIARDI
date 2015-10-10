@@ -2,7 +2,7 @@
 
 #include "sock_lib.h"
 
-typedef void(*ServiceHandle) (Handle);
+typedef void (*ServiceHandle)(Handle);
 
 class Event_Connector : Event_Handler
 {
@@ -15,6 +15,6 @@ public:
 
 private:
 	SOCK_Connector connector_;
-	Reactor *reactor_;
+	Reactor* reactor_;
 	ServiceHandle sh_;
 };
